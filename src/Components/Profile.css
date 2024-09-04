@@ -1,0 +1,71 @@
+.profile {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+    background: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-count {
+    display: block;
+    font-size: 18px;
+    color: #262626;
+    font-weight: bold;
+}
+
+.stat-name {
+    font-size: 14px;
+    color: #262626;
+}
+
+.profile-details {
+    text-align: center;
+}
+
+.profile-username {
+    font-size: 20px;
+    color: #262626;
+    margin: 5px 0;
+}
+
+.profile-bio {
+    font-size: 14px;
+    color: #262626;
+    margin: 5px 0;
+}
+
+.profile-link {
+    font-size: 14px;
+    color: #003569;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+/* Добавьте медиа-запросы и другие стили для адаптации к различным размерам экранов и точной настройки визуальных параметров */
