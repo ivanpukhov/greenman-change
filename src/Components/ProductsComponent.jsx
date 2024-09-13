@@ -40,7 +40,7 @@ const ProductsComponent = () => {
                         key={product.id}
                         title={product.name}
                         extra={<Button icon={<EditOutlined/>} onClick={() => showModal(product)}>Редактировать</Button>}
-                        style={{width: '100%', maxWidth: 500, margin: 10}}
+                        style={{width: '100%', maxWidth: 300, margin: 10}}
                     >
                         <List
                             size="small"
