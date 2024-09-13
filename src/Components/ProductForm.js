@@ -22,7 +22,7 @@ const ProductForm = () => {
     };
 
     return (
-        <Card title="Обновление товара" bordered={false} style={{ width: 600, margin: "20px auto" }}>
+        <Card title="Обновление товара" bordered={false} style={{ width: "100%", maxWidth: 400, margin: "20px auto" }}>
             <Form
                 form={form}
                 onFinish={handleSubmit}
