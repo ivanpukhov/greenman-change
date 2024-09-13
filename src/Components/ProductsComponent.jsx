@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { Card, Modal, Button, List } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import {Button, Card, List} from 'antd';
+import {EditOutlined, PlusOutlined} from '@ant-design/icons';
 import ProductModal from './ProductModal';
+import {Link} from "react-router-dom";
 
 const ProductsComponent = () => {
     const [products, setProducts] = useState([]);
@@ -26,31 +27,40 @@ const ProductsComponent = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {products.map(product => (
-                <Card
-                    key={product.id}
-                    title={product.name}
-                    extra={<Button icon={<EditOutlined />} onClick={() => showModal(product)}>Редактировать</Button>}
-                    style={{ width: '100%', maxWidth: 500, margin: 10 }}
-                >
-                    <List
-                        size="small"
-                        header={<div>Типы продукта</div>}
-                        bordered
-                        dataSource={product.types}
-                        renderItem={item => <List.Item>{item.type}: {item.price} тг</List.Item>}
+        <><Link to={'/add'}  style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+            <Button type="primary" block icon={<PlusOutlined/>} style={{width: '300px', background: 'green'}}>
+                Добавить товар
+            </Button>
+        </Link>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+
+
+                {products.map(product => (
+                    <Card
+                        key={product.id}
+                        title={product.name}
+                        extra={<Button icon={<EditOutlined/>} onClick={() => showModal(product)}>Редактировать</Button>}
+                        style={{width: '100%', maxWidth: 500, margin: 10}}
+                    >
+                        <List
+                            size="small"
+                            header={<div>Типы продукта</div>}
+                            bordered
+                            dataSource={product.types}
+                            renderItem={item => <List.Item>{item.type}: {item.price} тг</List.Item>}
+                        />
+                    </Card>
+                ))}
+                {currentProduct && (
+                    <ProductModal
+                        product={currentProduct}
+                        visible={isModalVisible}
+                        onCancel={handleCancel}
                     />
-                </Card>
-            ))}
-            {currentProduct && (
-                <ProductModal
-                    product={currentProduct}
-                    visible={isModalVisible}
-                    onCancel={handleCancel}
-                />
-            )}
-        </div>
+                )}
+
+            </div>
+        </>
     );
 };
 
